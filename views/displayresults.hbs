@@ -1,0 +1,42 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">siren</th>
+      <th scope="col">Code APE</th>
+      <th scope="col">Nom de l'entreprise</th>
+      <th scope="col">Région</th>
+      <th scope="col">Département</th>
+      <th scope="col">Chiffre d'affaires 2016</th>
+      <th scope="col">Chiffre d'affaires 2017</th>
+      <th scope="col">Effectif 2016</th>
+      <th scope="col">Effectif 2017</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each displayResults}}
+    <tr>
+      <th scope="row">1</th>
+      <td>{{fields.siren}}</td>
+      <td>{{fields.code_ape}}</td>
+      <td>{{fields.denomination}}</td>
+      <td>{{fields.region}}</td>
+      <td>{{fields.num_dept}}</td>
+      <td>{{fields.ca_2}}</td>
+      <td>{{fields.ca_1}}</td>
+      <td>{{fields.effectif_2}}</td>
+      <td>{{fields.effectif_1}}</td>
+      <td><a target="_BLANK" class="btn btn-social-icon btn-google" href="https://www.google.com/search?q={{fields.denomination}}">
+        <a target="_BLANK" class="btn btn-social-icon btn-linkedin"
+        href="{{fields.fiche_identite}}"><span class="fa fa-linkedin"></span></a>
+        <span class="fa fa-google"></span></a>
+        <a target="_BLANK" class="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com/search/results/companies/v2/?keywords={{fields.denomination}}">
+        <span class="fa fa-linkedin"></span></a>
+        <a target="_BLANK" class="btn btn-social-icon btn-twitter" href="https://twitter.com/search?f=users&vertical=default&q={{fields.denomination}}">
+        <span class="fa fa-twitter"></span></a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

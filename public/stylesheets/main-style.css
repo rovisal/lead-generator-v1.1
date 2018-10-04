@@ -1,0 +1,17 @@
+body {
+
+}
+
+.height-100vvh {
+  height: 100vh;
+}
+
+.index-button {
+  width: 100%;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.mauve {
+  background-color: #F0EFFF;
+}

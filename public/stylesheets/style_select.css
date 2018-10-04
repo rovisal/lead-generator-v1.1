@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -3472,8 +3472,9 @@ a {
  .navbar-expand .navbar-toggler {
   display:none
  }
+ 
  .navbar-light .navbar-brand {
-  color:rgba(0,0,0,.9)
+  color:white;
  }
  .navbar-light .navbar-brand:focus,.navbar-light .navbar-brand:hover {
   color:rgba(0,0,0,.9)
@@ -4971,7 +4972,7 @@ a {
   background-color:#bd2130!important
  }
  .bg-light {
-  background-color:#f8f9fa!important
+  background-color:rgb(108,99,255)!important
  }
  a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
   background-color:#dae0e5!important
@@ -8726,7 +8727,7 @@ a {
   border-color:#212121!important
  }
  .bg-light {
-  background-color:#e0e0e0!important
+  background-color:#E0DEFC!important
  }
  a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
   background-color:#c7c7c7!important
@@ -14191,7 +14192,7 @@ a {
  .navbar {
   -webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
   box-shadow:0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
-  font-weight:300
+  font-weight:300;
  }
  .navbar form .md-form input {
   margin:0 5px 1px 8px

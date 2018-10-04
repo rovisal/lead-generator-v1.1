@@ -143,6 +143,7 @@ let allLabels = "";
           console.log('-----allLabelsstringy-----');
           console.log(allLabels);
           allRequests.push(axios.get(`https://opendata.datainfogreffe.fr/api/records/1.0/search/?dataset=chiffres-cles-2017&rows=-1${allLabels}`));
+          allLabels = "";
         })
       })
     })

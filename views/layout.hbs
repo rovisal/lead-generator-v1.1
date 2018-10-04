@@ -23,6 +23,8 @@
     <script type="text/javascript" src="javascripts/select7.js"></script>
     <script type="text/javascript" src="javascripts/searchCriteria.js"></script> --}}
 
+    <!-- MDBootstrap Datatables  -->
+    <link href="/stylesheets/datatables.min.css" rel="stylesheet">
     <title>{{title}}</title>
   </head>
   <body>
@@ -51,8 +53,14 @@
       });
     </script>
 
-    
-
-    
+    <!-- MDBootstrap Datatables  -->
+    <script type="text/javascript" src="/javascripts/datatables.min.js"></script>
+    <script>
+      $(document).ready(function () {
+      $('#dtBasicExample').DataTable();
+      $('.dataTables_length').addClass('bs-select');
+    });
+    </script>
+    <!-- End MDBootstrap Datatables  -->
   </body>
 </html>

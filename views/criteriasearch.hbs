@@ -1,6 +1,7 @@
-<div style="" class="container">
+<div class="criteria-search-img height-100vh">
+<div class="container d-flex flex-column justify-content-center">
   <div class="row">
-    <div class="col-md-3 height-100vvh mauve">
+    <div class="col-md-6 offset-md-3 mauve" style="margin-top: 30px; border-radius: 8px; box-shadow: 0 0 34px 0 #dbdada;">
       <form method="POST" action="/criteria-search">
       {{!-- <button class="btn-save btn btn-primary btn-sm">Save</button> --}}
       <select class="mdb-select md-form colorful-select dropdown-primary" multiple searchable="Search here.." name="codeApe">
@@ -637,21 +638,13 @@
           <option value="B entre 32K et 82K">Entre 32k et 82k euros</option>
           <option value="A - de 32K">Inférieur à 32k euros</option>
         </select>
-        <button type="submit">Submit</button>
+        <div class="text-center">
+          <button style="margin-bottom: 20px;" type="submit" class="btn btn-primary">Trouver des leads</button>
+        </div>
         </form>
     </div>
     <div class="col-md-9">
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-       
-        
- 
+</div>

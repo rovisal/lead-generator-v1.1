@@ -8726,7 +8726,7 @@ a {
   border-color:#212121!important
  }
  .bg-light {
-  background-color:#E0DEFC!important
+  background-color:#B9B4FF!important
  }
  a.bg-light:focus,a.bg-light:hover,button.bg-light:focus,button.bg-light:hover {
   background-color:#c7c7c7!important
@@ -17943,7 +17943,7 @@ a {
   box-shadow:none!important
  }
  .table a {
-  margin-right:1rem!important
+  /* margin-right:1rem!important */
  }
  .table fieldset.form-check {
   margin-bottom:0

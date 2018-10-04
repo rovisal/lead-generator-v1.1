@@ -1,8 +1,4 @@
-body {
-
-}
-
-.height-100vvh {
+.height-100vh {
   height: 100vh;
 }
 
@@ -14,4 +10,9 @@ body {
 
 .mauve {
   background-color: #F0EFFF;
+}
+
+.criteria-search-img {
+  background-image: url('/images/meeting.jpeg');
+  background-size: cover;
 }

@@ -16,3 +16,21 @@
   background-image: url('/images/meeting.jpeg');
   background-size: cover;
 }
+
+/* Table number ordering */
+
+table {
+  counter-reset: rowNumber;
+}
+
+table tbody tr {
+  counter-increment: rowNumber;
+}
+
+table tbody tr td:first-child::before {
+  content: counter(rowNumber);
+  min-width: 1em;
+  margin-right: 0.5em;
+}
+
+/* end Table number ordering */

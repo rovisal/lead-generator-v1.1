@@ -1,5 +1,6 @@
 <div class="container">
-<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+<div class="">
+<table id="dtBasicExample" class="table table-striped table-bordered table-sm w-auto" cellspacing="0" width="100%">
     <thead>
     <tr>
       <th class="th-sm">#
@@ -43,7 +44,7 @@
   <tbody>
     {{#each displayResults}}
     <tr>
-      <th scope="row">1</th>
+      <td scope="row"></td>
       <td>{{fields.siren}}</td>
       <td>{{fields.code_ape}}</td>
       <td>{{fields.denomination}}</td>
@@ -66,5 +67,6 @@
     {{/each}}
   </tbody>
 </table>
+</div>
 </div>
 

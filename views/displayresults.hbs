@@ -1,9 +1,10 @@
+<div style="background-color: #efedff;">
 <div class="container">
-<div class="">
-<table id="dtBasicExample" class="table table-striped table-bordered table-sm w-auto" cellspacing="0" width="100%">
+<div class="table-responsive-md">
+<table id="dtBasicExample" width="100%" class="table table-hover table-sm w-auto" cellspacing="0" width="100%">
     <thead>
     <tr>
-      <th class="th-sm">#
+      <th>#
         <i class="fa fa-sort float-right" aria-hidden="true"></i>
       </th>
       <th class="th-sm">Siren
@@ -22,10 +23,10 @@
         <i class="fa fa-sort float-right" aria-hidden="true"></i>
       </th>
       </th>
-      <th class="th-sm">Chiffre d'affaires 2016
+      <th class="th-sm">CA 2016 (€)
         <i class="fa fa-sort float-right" aria-hidden="true"></i>
       </th>
-      <th class="th-sm">Chiffre d'affaires 2017
+      <th class="th-sm">CA 2017 (€)
         <i class="fa fa-sort float-right" aria-hidden="true"></i>
       </th>
       <th class="th-sm">Effectifs 2016
@@ -45,22 +46,26 @@
     {{#each displayResults}}
     <tr>
       <td scope="row"></td>
-      <td>{{fields.siren}}</td>
+      <td>{{siren}}</td>
       <td>{{fields.code_ape}}</td>
       <td>{{fields.denomination}}</td>
       <td>{{fields.region}}</td>
       <td>{{fields.num_dept}}</td>
-      <td>{{fields.ca_2}}</td>
-      <td>{{fields.ca_1}}</td>
-      <td>{{fields.effectif_2}}</td>
-      <td>{{fields.effectif_1}}</td>
-      <td><a target="_BLANK" class="btn btn-social-icon btn-google" href="https://www.google.com/search?q={{fields.denomination}}">
-        {{!-- <a target="_BLANK" class="btn btn-social-icon btn-linkedin"
-        href="{{fields.fiche_identite}}"><span class="fa fa-linkedin"></span></a> --}}
+      <td>{{ca2016}}</td>
+      <td>{{ca2017}}</td>
+      <td>{{effectif_2}}</td>
+      <td>{{effectif_1}}</td>
+      <td>
+        <a target="_BLANK" style="margin-bottom:4px;" class="btn btn-primary btn-social-icon" href="{{fields.fiche_identite}}">
+        <i class="fas fa-info"></i></a>
+
+        <a target="_BLANK" style="margin-bottom:4px;" class="btn btn-social-icon btn-google" href="https://www.google.com/search?q={{fields.denomination}}">
         <span class="fa fa-google"></span></a>
-        <a target="_BLANK" class="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com/search/results/companies/v2/?keywords={{fields.denomination}}">
+
+        <a target="_BLANK" style="margin-bottom:4px;" class="btn btn-social-icon btn-linkedin" href="https://www.linkedin.com/search/results/companies/v2/?keywords={{fields.denomination}}">
         <span class="fa fa-linkedin"></span></a>
-        <a target="_BLANK" class="btn btn-social-icon btn-twitter" href="https://twitter.com/search?f=users&vertical=default&q={{fields.denomination}}">
+
+        <a target="_BLANK" style="margin-bottom:4px;" class="btn btn-social-icon btn-twitter" href="https://twitter.com/search?f=users&vertical=default&q={{fields.denomination}}">
         <span class="fa fa-twitter"></span></a>
       </td>
     </tr>
@@ -69,4 +74,4 @@
 </table>
 </div>
 </div>
-
+</div>

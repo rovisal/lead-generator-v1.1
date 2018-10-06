@@ -149,11 +149,27 @@ let allLabels = "";
     })
   })
 })
+
+function formatNum(chaine) {
+  resu = chaine.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+  console.log(chaine)
+  console.log('res', resu)
+  return resu;
+};  
+
 Promise.all(allRequests)
 .then(responses => {
   console.log("-----response-----");
   console.log(responses[0].data.records);
   let displayResults = _.flatten(responses.map(o=>o.data.records));
+  displayResults.map(o => {
+    o.ca2016 = o.fields.ca_2 ? formatNum(o.fields.ca_2) : "-";
+    o.ca2017 = o.fields.ca_1 ? formatNum(o.fields.ca_1) : "-";
+    o.siren = o.fields.siren ? formatNum(o.fields.siren) : "-";
+    o.effectif_2 = o.fields.effectif_2 ? formatNum(o.fields.effectif_2) : "-";
+    o.effectif_1 = o.fields.effectif_1 ? formatNum(o.fields.effectif_1) : "-";
+    return o
+  })
   console.log(displayResults);
   res.render('displayresults', {displayResults})
 })             

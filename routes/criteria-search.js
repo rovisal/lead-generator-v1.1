@@ -3,6 +3,7 @@ const criteriaSearch  = express.Router();
 const queryString = require('query-string');
 const axios = require('axios');
 const _ = require('lodash');
+const excel = require('node-excel-export');
 
 /* GET home page */
 criteriaSearch.get('/criteria-search', (req, res, next) => {
@@ -171,47 +172,128 @@ Promise.all(allRequests)
     return o
   })
   console.log(displayResults);
-  res.render('displayresults', {displayResults})
-})             
-
-// console.log("-----AllRequests-----");
-// console.log(allRequests);
-
-
-    // array.forEach(element => {CodeApe [1 2 3]
-    //   array.forEach(element => {Code 1 + Region [1 2 3]
-        
-    //     array.forEach(element => { Code 1 + Region 1 + CA [1 2 3]
-    //       return let results = 
-    //         array.push(result.get(refine.code_ape=1&refine.millesime))
-          
-    //     });
-    //   });
-    // });
-
-  // Launch HTTP request to this URL
-  // result.get()
-  // .then(response => {
-  //   let displayResults = response.data.records;
-  //   console.log("Length records: " + response.data.records.length);
-  //   console.log("Length records[0]: ");
-  //   console.log(response.data.records[0]);
-  //   // console.log(response);
-  //   // console.log('records[0]: ');
-  //   // console.log(response.data.records[0]);
-  //   const allTranches = response.data.records.map(elt => elt.fields.tranche_ca_millesime_1);
-    
-  //   var filteredTranches = allTranches.filter(function(item, pos){
-  //     return allTranches.indexOf(item)=== pos; // Si le premier index de l'élément est également sa position alors on affiche cet élement (condition true). Sinon on ne l'affiche pas (parce que la position est false)
-  //   });
   
-  //   res.render('displayresults', {displayResults})
-  //   res.render('apecodes', {filteredApeCodes})
-  // })
-  // .catch(function (error) {
-  //   console.log(error);
-  // });
+  const dataset = displayResults.map(elt => {
+    return {
+      siren : elt.fields.siren,
+      code_ape : elt.fields.code_ape,
+      denomination : elt.fields.denomination,
+      region : elt.fields.region,
+      num_dept : elt.fields.num_dept,
+      ca_2016 : elt.fields.ca_2,
+      ca_2017 : elt.fields.ca_1,
+      effectif_2016 : elt.fields.effectif_2,
+      effectif_2017 : elt.fields.effectif_1,
+      fiche_identite : elt.fields.fiche_identite,
+      google : "https://www.google.com/search?q="+ elt.fields.denomination +"\'",
+      linkedin : "https://www.linkedin.com/search/results/companies/v2/?keywords="+ elt.fields.denomination +"\'",
+      twitter : "https://twitter.com/search?f=users&vertical=default&q="+ elt.fields.denomination +"\'"
+    }
+  })
+    // console.log('----------dataset----------');
+    // console.log(dataset);
+
+    function reportGeneration() {
+      // Excel Export
+      const heading = [
+        ['Siren', 'Code APE', 'Nom de l\'entreprise', 'Région', 'Département', 'CA 2016', 'CA 2017', 'Effectifs 2016', 'Effectifs 2017','fiche_identite',
+        'Trouver sur Google', 'Trouver sur LinkedIn', 'Trouver sur Twitter'] // <-- It can be only values
+      ];
+      
+      //Here you specify the export structure
+      const specification = {
+        siren: { // <- the key should match the actual data key
+          displayName: 'Siren', // <- Here you specify the column header
+          // headerStyle: styles.headerDark, // <- Header style
+          width: 120 // <- width in pixels
+        },
+        code_ape: { // <- the key should match the actual data key
+          displayName: 'Code APE', // <- Here you specify the column header
+          // headerStyle: styles.headerDark, // <- Header style
+          width: 120 // <- width in pixels
+        },
+        denomination: { // <- the key should match the actual data key
+          displayName: 'Nom de l\'entreprise', // <- Here you specify the column header
+          // headerStyle: styles.headerDark, // <- Header style
+          width: 120 // <- width in pixels
+        },
+        region: { // <- the key should match the actual data key
+          displayName: 'Région', // <- Here you specify the column header
+          // headerStyle: styles.headerDark, // <- Header style
+          width: 120 // <- width in pixels
+        },
+        num_dept: { // <- the key should match the actual data key
+          displayName: 'Département', // <- Here you specify the column header
+          // headerStyle: styles.headerDark, // <- Header style
+          width: 120 // <- width in pixels
+        },
+        ca_2016: { // <- the key should match the actual data key
+          displayName: 'CA 2016', // <- Here you specify the column header
+          // headerStyle: styles.headerDark, // <- Header style
+          width: 120 // <- width in pixels
+        },
+        ca_2017: { // <- the key should match the actual data key
+          displayName: 'CA 2017', // <- Here you specify the column header
+          // headerStyle: styles.headerDark, // <- Header style
+          width: 120 // <- width in pixels
+        },
+        effectif_2016: { // <- the key should match the actual data key
+          displayName: 'Effectifs 2016', // <- Here you specify the column header
+          // headerStyle: styles.headerDark, // <- Header style
+          width: 120 // <- width in pixels
+        },
+        effectif_2017: { // <- the key should match the actual data key
+          displayName: 'Effectifs 2017', // <- Here you specify the column header
+          // headerStyle: styles.headerDark, // <- Header style
+          width: 120 // <- width in pixels
+        },
+        fiche_identite: { // <- the key should match the actual data key
+          displayName: 'fiche_identite', // <- Here you specify the column header
+          // headerStyle: styles.headerDark, // <- Header style
+          width: 120 // <- width in pixels
+        },
+        google: { // <- the key should match the actual data key
+          displayName: 'Trouver sur Google', // <- Here you specify the column header
+          // headerStyle: styles.headerDark, // <- Header style
+          width: 120 // <- width in pixels
+        },
+        linkedin: { // <- the key should match the actual data key
+          displayName: 'Trouver sur LinkedIn', // <- Here you specify the column header
+          // headerStyle: styles.headerDark, // <- Header style
+          width: 120 // <- width in pixels
+        },
+        twitter: { // <- the key should match the actual data key
+          displayName: 'Trouver sur Twitter', // <- Here you specify the column header
+          // headerStyle: styles.headerDark, // <- Header style
+          width: 120 // <- width in pixels
+        },
+      }
+      
+      const report = excel.buildExport(
+        [ // <- Notice that this is an array. Pass multiple sheets to create multi sheet report
+          {
+            name: 'Report', // <- Specify sheet name (optional)
+            heading: heading, // <- Raw heading array (optional)
+            // merges: merges, // <- Merge cell ranges
+            specification: specification, // <- Report specification
+            data: dataset // <-- Report data
+          }
+        ]
+      );
+       
+      // You can then return this straight
+      res.attachment('report.xlsx'); // This is sails.js specific (in general you need to set headers)
+      return res.send(report);
+      
+      }
+    res.render('displayresults', {displayResults})
+})     
+
 })
+
+// criteriaSearch.get('/criteria-search/export', (req, res, next) => {
+//   return reportGeneration()
+// })
 
 module.exports = criteriaSearch;
 

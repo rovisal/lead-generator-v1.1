@@ -34,3 +34,17 @@ table tbody tr td:first-child::before {
 }
 
 /* end Table number ordering */
+
+nav.ironleads {
+  color: white !important;
+}
+
+nav.ironleads a:hover {
+  color:#7A72FF !important;
+}
+
+.navbar-brand {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+

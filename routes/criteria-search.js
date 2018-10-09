@@ -199,9 +199,11 @@ Promise.all(allRequests)
 
 
 criteriaSearch.post('/criteria-search/export', (req, res, next) => {
+  console.log("req.body -->");
+  console.log(req.body);
+  
   if (typeof req.body.codeApe === 'string') {
-    var codeApe = []
-    codeApe.push(req.body.codeApe);
+    var codeApe = req.body.codeApe.split(',');
   } else {
     var codeApe = req.body.codeApe;
   }
@@ -209,28 +211,24 @@ criteriaSearch.post('/criteria-search/export', (req, res, next) => {
   console.log(codeApe);
   
   if (typeof req.body.region === 'string') {
-    var region = []
-    region.push(req.body.region)
+    var region = req.body.region.split(',');
   } else {
     var region = req.body.region;
   }
   console.log("----Region----");
   console.log(region);
   if (typeof req.body.num_dept === 'string') {
-    var num_dept = []
-    num_dept.push(req.body.num_dept)
+    var num_dept = req.body.num_dept.split(',');
   } else {
     var num_dept = req.body.num_dept;
   }
   if (typeof req.body.tranche_CA_2017 === 'string') {
-    var tranche_CA_2017 = []
-    tranche_CA_2017.push(req.body.tranche_CA_2017)
+    var tranche_CA_2017 = req.body.tranche_CA_2017.split(',');
   } else {
     var tranche_CA_2017 = req.body.tranche_CA_2017;
   }
   if (typeof req.body.tranche_CA_2016 === 'string') {
-    var tranche_CA_2016 = []
-    tranche_CA_2016.push(req.body.tranche_CA_2016)
+    var tranche_CA_2016 = req.body.tranche_CA_2016.split(',');
   } else {
     var tranche_CA_2016 = req.body.tranche_CA_2016;
   }
@@ -395,7 +393,7 @@ criteriaSearch.post('/criteria-search/export', (req, res, next) => {
         width: 120 // <- width in pixels
       },
       fiche_identite: { // <- the key should match the actual data key
-        displayName: 'fiche_identite', // <- Here you specify the column header
+        displayName: 'Fiche_identite', // <- Here you specify the column header
         // headerStyle: styles.headerDark, // <- Header style
         width: 120 // <- width in pixels
       },

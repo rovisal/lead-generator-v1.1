@@ -1,10 +1,19 @@
 <div style="background-color: #efedff;">
-<button type="button" class="excel btn btn-primary">Export Excel</button>
-<a href="/criteria-search/export" class="badge badge-primary">Export Excel link</a>
-
+  <div style="background-color: #e0dcfe;"> <!-- e0dcfe-->
+    <div class="container">
+    <form style="padding: 5px 0; text-align: right;" action="/criteria-search/export" method="post">
+      <input type="hidden" name="codeApe" value="{{form.codeApe}}">
+      <input type="hidden" name="region" value="{{form.region}}">
+      <input type="hidden" name="num_dept" value="{{form.num_dept}}">
+      <input type="hidden" name="tranche_CA_2017" value="{{form.tranche_CA_2017}}">
+      <input type="hidden" name="tranche_CA_2016" value="{{form.tranche_CA_2016}}">
+      <button type="submit" class="excel btn btn-primary btn-sm">Export Excel</button>
+    </form>
+    </div>
+  </div>
 <div class="container">
-<div class="table-responsive-sm">
-<table id="dtBasicExample" width="100%" class="table table-hover table-sm w-auto" cellspacing="0" width="100%">
+  <div class="table-responsive-sm" style="padding-top: 15px;">
+    <table id="dtBasicExample" width="100%" class="table table-hover table-sm w-auto" cellspacing="0" width="100%">
     <thead>
     <tr>
       <th>#
